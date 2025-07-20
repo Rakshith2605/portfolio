@@ -11,7 +11,7 @@ export function Presentation() {
     age: '25 years old',
     location: 'Bangalore, India',
     description:
-      "Hey 👋\nI'm Rakshith Dharmappa. I'm a passionate software engineer with expertise in full-stack development, cloud computing, and AI. I love building scalable web applications and exploring new technologies.",
+      "Hey 👋\nI'm Rakshith Dharmappa. I'm a passionate software engineer with expertise in generative AI, cloud computing, and AI. I love building scalable AI applications and exploring new technologies.",
     src: '/avatar-landing.png',
     fallbackSrc:
       'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3',

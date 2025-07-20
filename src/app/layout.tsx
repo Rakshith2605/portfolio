@@ -14,11 +14,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Rakshith Dharmappa Portfolio",
-  description: "Portfolio of Rakshith Dharmappa - Full Stack Developer, Cloud & AI Enthusiast. Explore my projects, skills, and experience.",
+  description: "Portfolio of Rakshith Dharmappa - Generative AI Engineer, Cloud & AI Enthusiast. Explore my projects, skills, and experience.",
   keywords: [
     "Rakshith Dharmappa",
     "Portfolio",
-    "Full Stack Developer",
+    "Generative AI Engineer",
     "Cloud",
     "AI",
     "Web Development",
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://rakshithdharmappa.com",
     title: "Rakshith Dharmappa Portfolio",
-    description: "Portfolio of Rakshith Dharmappa - Full Stack Developer, Cloud & AI Enthusiast.",
+    description: "Portfolio of Rakshith Dharmappa - Generative AI Engineer, Cloud & AI Enthusiast.",
     siteName: "Rakshith Dharmappa Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Rakshith Dharmappa Portfolio",
-    description: "Portfolio of Rakshith Dharmappa - Full Stack Developer, Cloud & AI Enthusiast.",
+    description: "Portfolio of Rakshith Dharmappa - Generative AI Engineer, Cloud & AI Enthusiast.",
     creator: "@rakshith2605",
   },
   icons: {
