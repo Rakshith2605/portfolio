@@ -10,10 +10,10 @@ export const getContact = tool({
       contact: {
         email: 'dharmappa.r@northeastern.edu',
         phone: '+1-857-398-3843',
-        location: 'Peenya, Bangalore',
+        location: 'Frisco, Dallas',
+        hometown: 'Bengaluru',
         linkedin: 'https://www.linkedin.com/in/rakshithd26',
-        github: 'https://github.com/rakshith2605',
-        handle: '@rakshith2605'
+        github: 'https://github.com/rakshith2605'
       }
     };
   },
