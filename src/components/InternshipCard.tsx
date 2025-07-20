@@ -129,7 +129,7 @@ const InternshipCard = () => {
       <div className="mt-10 flex justify-center">
         <button
           onClick={openMail}
-          className="cursor-pointer rounded-full bg-black px-6 py-3 font-semibold text-white transition-colors duration-300 hover:bg-zinc-800"
+          className="cursor-pointer rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition-colors duration-300 hover:bg-primary/90"
         >
           Contact me
         </button>

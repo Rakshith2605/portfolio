@@ -79,37 +79,38 @@
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
-  --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.552 0.016 285.938);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
+  /* ChatGPT-style dark mode colors */
+  --background: #343541;
+  --foreground: #ececf1;
+  --card: #444654;
+  --card-foreground: #ececf1;
+  --popover: #444654;
+  --popover-foreground: #ececf1;
+  --primary: #ececf1;
+  --primary-foreground: #343541;
+  --secondary: #565869;
+  --secondary-foreground: #ececf1;
+  --muted: #565869;
+  --muted-foreground: #acacbe;
+  --accent: #565869;
+  --accent-foreground: #ececf1;
+  --destructive: #ef4444;
+  --border: #565869;
+  --input: #565869;
+  --ring: #acacbe;
+  --chart-1: #10a37f;
+  --chart-2: #1a7f64;
+  --chart-3: #0d9488;
+  --chart-4: #059669;
+  --chart-5: #047857;
+  --sidebar: #444654;
+  --sidebar-foreground: #ececf1;
+  --sidebar-primary: #10a37f;
+  --sidebar-primary-foreground: #ececf1;
+  --sidebar-accent: #565869;
+  --sidebar-accent-foreground: #ececf1;
+  --sidebar-border: #565869;
+  --sidebar-ring: #acacbe;
 }
 
 @layer base {
@@ -124,7 +125,7 @@
 .custom-scrollbar {
   /* For Firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.5) transparent;
 }
 
 /* For Chrome, Edge, and Safari */
@@ -138,14 +139,14 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(155, 155, 155, 0.5);
+  background-color: hsl(var(--muted-foreground) / 0.5);
   border-radius: 10px;
   border: transparent;
 }
 
 /* Hide scrollbar when not in use but keep functionality */
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(155, 155, 155, 0.7);
+  background-color: hsl(var(--muted-foreground) / 0.7);
 }
 
 /* Ensure code blocks can scroll horizontally */

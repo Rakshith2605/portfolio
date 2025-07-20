@@ -21,7 +21,7 @@ export function Contact() {
       {
         name: 'GitHub',
         url: 'https://github.com/rakshith2605',
-        icon: <Github className="inline h-5 w-5 mr-1 text-black dark:text-white" />,
+        icon: <Github className="inline h-5 w-5 mr-1 text-foreground" />,
       },
     ],
   };

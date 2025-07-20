@@ -2,7 +2,7 @@
 
 import FluidCursor from '@/components/FluidCursor';
 import { Button } from '@/components/ui/button';
-import { GithubButton } from '@/components/ui/github-button';
+
 import WelcomeModal from '@/components/welcome-modal';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -63,14 +63,8 @@ export default function Home() {
   const titleTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const openChat = async (query: string) => {
-    setIsLoading(true);
     setInitialQuery(query);
-    
-    // Add a small delay for smooth transition
-    await new Promise(resolve => setTimeout(resolve, 300));
-    
     setIsChatOpen(true);
-    setIsLoading(false);
   };
 
   /* hero animations (unchanged) */
@@ -126,55 +120,19 @@ export default function Home() {
       animate="animate"
       exit="exit"
     >
-      {/* Loading overlay */}
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="flex flex-col items-center gap-4 rounded-2xl bg-white/90 p-8 shadow-2xl backdrop-blur-md dark:bg-neutral-900/90"
-            >
-              <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
-              <div className="text-center">
-                <p className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-                  Preparing your conversation...
-                </p>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  {initialQuery}
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
 
       {/* big blurred footer word */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
         <div
-          className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
+          className="hidden bg-gradient-to-b from-muted-foreground/10 to-muted-foreground/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
           style={{ marginBottom: '-2.5rem' }}
         >
           Rakshith
         </div>
       </div>
 
-      {/* GitHub button */}
-      <div className="absolute top-6 right-8 z-20">
-        <GithubButton
-          //targetStars={68}
-          animationDuration={1.5}
-          label="Star"
-          size={'sm'}
-          repoUrl="https://github.com/rakshith2605/portfolio"
-        />
-      </div>
+
 
       <div className="absolute top-6 left-6 z-20">
         <button
@@ -183,7 +141,7 @@ export default function Home() {
             const body = encodeURIComponent('Hi Rakshith,\n\nI would like to discuss a potential opportunity with you.\n\nBest regards,');
             window.location.href = `mailto:dharmappa.r@northeastern.edu?subject=${subject}&body=${body}`;
           }}
-          className="relative flex cursor-pointer items-center gap-2 rounded-full border bg-white/30 px-4 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
+                      className="relative flex cursor-pointer items-center gap-2 rounded-full border bg-background/30 px-4 py-1.5 text-sm font-medium text-foreground shadow-md backdrop-blur-lg transition hover:bg-background/60"
         >
           {/* Green pulse dot */}
           <span className="relative flex h-2 w-2">
@@ -251,33 +209,28 @@ export default function Home() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              if (input.trim() && !isLoading) {
+              if (input.trim()) {
                 await openChat(input.trim());
               }
             }}
             className="relative w-full max-w-lg"
           >
-            <div className="mx-auto flex items-center rounded-full border border-neutral-200 bg-white/30 py-2.5 pr-2 pl-6 backdrop-blur-lg transition-all hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-neutral-600">
+            <div className="mx-auto flex items-center rounded-full border border-border bg-background/30 py-2.5 pr-2 pl-6 backdrop-blur-lg transition-all hover:border-border/60">
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me anything…"
-                disabled={isLoading}
-                className="w-full border-none bg-transparent text-base text-neutral-800 placeholder:text-neutral-500 focus:outline-none disabled:opacity-50 dark:text-neutral-200 dark:placeholder:text-neutral-500"
+                className="w-full border-none bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
               />
               <button
                 type="submit"
-                disabled={!input.trim() || isLoading}
+                disabled={!input.trim()}
                 aria-label="Submit question"
                 className="flex items-center justify-center rounded-full bg-[#0171E3] p-2.5 text-white transition-colors hover:bg-blue-600 disabled:opacity-70 dark:bg-blue-600 dark:hover:bg-blue-700"
               >
-                {isLoading ? (
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                ) : (
-                  <ArrowRight className="h-5 w-5" />
-                )}
+                <ArrowRight className="h-5 w-5" />
               </button>
             </div>
           </form>
@@ -293,11 +246,10 @@ export default function Home() {
               >
                 <Button
                   onClick={() => openChat(questions[key])}
-                  disabled={isLoading}
                   variant="outline"
-                  className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 shadow-none backdrop-blur-lg disabled:opacity-50 disabled:cursor-not-allowed md:p-10"
+                  className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-background/30 py-8 shadow-none backdrop-blur-lg md:p-10"
                 >
-                  <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700">
+                  <div className="flex h-full flex-col items-center justify-center gap-1 text-muted-foreground">
                     <Icon size={22} strokeWidth={2} color={color} />
                     <span className="text-xs font-medium sm:text-sm">{key}</span>
                   </div>
@@ -308,26 +260,23 @@ export default function Home() {
         </motion.div>
 
         {/* Chat Overlay */}
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {isChatOpen && (
             <motion.div
-              initial={{ opacity: 0, y: '100%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-0 z-50 bg-white dark:bg-neutral-900"
+              initial={{ opacity: 0, y: '100%', scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: '100%', scale: 0.95 }}
+              transition={{ 
+                type: 'spring', 
+                damping: 30, 
+                stiffness: 300,
+                duration: 0.6
+              }}
+              className="fixed inset-0 z-50 bg-background"
             >
               <div className="relative h-full w-full">
-                {/* Close button */}
-                <button
-                  onClick={() => setIsChatOpen(false)}
-                  className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-                
                 {/* Chat component */}
-                <ChatComponent initialQuery={initialQuery} />
+                <ChatComponent initialQuery={initialQuery} onClose={() => setIsChatOpen(false)} />
               </div>
             </motion.div>
           )}

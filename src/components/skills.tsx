@@ -22,7 +22,7 @@ const Skills = () => {
         'Docker',
         'Kubernetes',
       ],
-      color: 'bg-blue-50 text-blue-600 border border-blue-200',
+      color: 'bg-blue-50 text-blue-600 border border-blue-200 dark:bg-blue-950/30 dark:text-blue-400 dark:border-blue-800',
     },
     {
       category: 'Frontend & Web Development',
@@ -36,7 +36,7 @@ const Skills = () => {
         'Responsive Design',
         'Progressive Web Apps',
       ],
-      color: 'bg-green-50 text-green-600 border border-green-200',
+      color: 'bg-green-50 text-green-600 border border-green-200 dark:bg-green-950/30 dark:text-green-400 dark:border-green-800',
     },
     {
       category: 'Cloud & DevOps',
@@ -48,7 +48,7 @@ const Skills = () => {
         'Containerization',
         'Cloud-native Development',
       ],
-      color: 'bg-purple-50 text-purple-600 border border-purple-200',
+      color: 'bg-purple-50 text-purple-600 border border-purple-200 dark:bg-purple-950/30 dark:text-purple-400 dark:border-purple-800',
     },
     {
       category: 'Databases & Data Storage',
@@ -63,7 +63,7 @@ const Skills = () => {
         'Weaviate',
         'Pinecone',
       ],
-      color: 'bg-orange-50 text-orange-600 border border-orange-200',
+      color: 'bg-orange-50 text-orange-600 border border-orange-200 dark:bg-orange-950/30 dark:text-orange-400 dark:border-orange-800',
     },
     {
       category: 'Generative AI & Machine Learning',
@@ -82,7 +82,7 @@ const Skills = () => {
         'AI Agents',
         'Tool Calling',
       ],
-      color: 'bg-red-50 text-red-600 border border-red-200',
+      color: 'bg-red-50 text-red-600 border border-red-200 dark:bg-red-950/30 dark:text-red-400 dark:border-red-800',
     },
     {
       category: 'Data Engineering & Analytics',
@@ -101,7 +101,7 @@ const Skills = () => {
         'Selenium',
         'Scrapy',
       ],
-      color: 'bg-indigo-50 text-indigo-600 border border-indigo-200',
+      color: 'bg-indigo-50 text-indigo-600 border border-indigo-200 dark:bg-indigo-950/30 dark:text-indigo-400 dark:border-indigo-800',
     },
     {
       category: 'Design & Creative Tools',
@@ -113,7 +113,7 @@ const Skills = () => {
         'UI/UX Design',
         'Prototyping',
       ],
-      color: 'bg-pink-50 text-pink-600 border border-pink-200',
+      color: 'bg-pink-50 text-pink-600 border border-pink-200 dark:bg-pink-950/30 dark:text-pink-400 dark:border-pink-800',
     },
     {
       category: 'Soft Skills',
@@ -129,7 +129,7 @@ const Skills = () => {
         'Project Management',
         'Leadership',
       ],
-      color: 'bg-amber-50 text-amber-600 border border-amber-200',
+      color: 'bg-amber-50 text-amber-600 border border-amber-200 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-800',
     },
   ];
 
@@ -178,7 +178,7 @@ const Skills = () => {
 
         <CardContent className="px-0">
           <motion.div
-            className="space-y-8 px-0"
+            className="space-y-6 px-0"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -186,7 +186,7 @@ const Skills = () => {
             {skillsData.map((section, index) => (
               <motion.div
                 key={index}
-                className="space-y-3 px-0"
+                className="space-y-2 px-0"
                 variants={itemVariants}
               >
                 <div className="flex items-center gap-2">
@@ -197,7 +197,7 @@ const Skills = () => {
                 </div>
 
                 <motion.div
-                  className="flex flex-wrap gap-2"
+                  className="flex flex-wrap gap-1.5"
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"
@@ -211,7 +211,7 @@ const Skills = () => {
                         transition: { duration: 0.2 },
                       }}
                     >
-                      <Badge className={`border px-3 py-1.5 font-normal`}>
+                      <Badge className={`border px-2.5 py-1 font-normal`}>
                         {skill}
                       </Badge>
                     </motion.div>

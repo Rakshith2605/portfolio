@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
@@ -85,6 +86,7 @@ export default function RootLayout({
           <main className="flex min-h-screen flex-col">
             {children}
           </main>
+          <ThemeToggle />
           <Toaster />
         </ThemeProvider>
         <Analytics />

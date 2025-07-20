@@ -7,6 +7,7 @@ import {
   IconX,
 } from '@tabler/icons-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 
 import React, {
   createContext,
@@ -272,16 +273,35 @@ export const Card = ({
         onClick={handleOpen}
         className="relative z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-100 hover:from-blue-100 hover:to-indigo-200 dark:from-neutral-800 dark:to-neutral-700 dark:hover:from-neutral-700 dark:hover:to-neutral-600 transition-all duration-300 hover:scale-105"
       >
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={card.src}
+            alt={card.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 224px, 224px"
+            onError={(e) => {
+              // Fallback to gradient background if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+            }}
+          />
+        </div>
+        
+        {/* Gradient overlay for better text readability */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        
         <div className="relative z-40 p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left font-sans text-sm font-medium text-neutral-600 dark:text-neutral-300 md:text-base"
+            className="text-left font-sans text-sm font-medium text-white md:text-base"
           >
             {card.category}
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-neutral-800 dark:text-white md:text-3xl"
+            className="max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
           >
             {card.title}
           </motion.p>

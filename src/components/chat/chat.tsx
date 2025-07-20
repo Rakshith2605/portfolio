@@ -18,7 +18,7 @@ import {
   ChatBubble,
   ChatBubbleMessage,
 } from '@/components/ui/chat/chat-bubble';
-import { Info, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import { GithubButton } from '../ui/github-button';
 
 // Constants
@@ -109,9 +109,10 @@ const Avatar = dynamic<AvatarProps>(
 
 interface ChatProps {
   initialQuery?: string;
+  onClose?: () => void;
 }
 
-const Chat = ({ initialQuery }: ChatProps) => {
+const Chat = ({ initialQuery, onClose }: ChatProps) => {
   const searchParams = useSearchParams();
   const queryFromParams = searchParams.get('query');
   const finalInitialQuery = initialQuery || queryFromParams;
@@ -252,40 +253,37 @@ const Chat = ({ initialQuery }: ChatProps) => {
       >
         <button
           onClick={() => window.history.back()}
-          className="flex items-center gap-2 rounded-full border bg-white/30 px-4 py-2 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
+                      className="flex items-center gap-2 rounded-full border bg-background/30 px-4 py-2 text-sm font-medium text-foreground shadow-md backdrop-blur-lg transition hover:bg-background/60"
         >
           <ArrowLeft className="h-4 w-4" />
           Back
         </button>
       </motion.div>
 
+      {/* Close button */}
       <motion.div 
-        className="absolute top-6 right-8 z-51 flex flex-col-reverse items-center justify-center gap-1 md:flex-row"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
+        className="absolute top-6 right-6 z-51"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
       >
-        <WelcomeModal
-          trigger={
-            <div className="hover:bg-accent cursor-pointer rounded-2xl px-3 py-1.5">
-              <Info className="text-accent-foreground h-8" />
-            </div>
-          }
-        />
-        <GithubButton
-          animationDuration={1.5}
-          label="Star"
-          size="sm"
-          repoUrl="https://github.com/rakshith2605/portfolio"
-        />
+        <button
+          onClick={onClose}
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-background/80 border border-border shadow-lg backdrop-blur-sm hover:bg-background/90 transition-all duration-200"
+          aria-label="Close chat"
+        >
+          <X className="h-5 w-5 text-foreground" />
+        </button>
       </motion.div>
+
+
 
       {/* Fixed Avatar Header */}
       <motion.div
         className="fixed top-0 right-0 left-0 z-50"
         style={{
           background:
-            'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 30%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%)',
+            'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.95) 30%, hsl(var(--background) / 0.8) 50%, hsl(var(--background) / 0) 100%)',
         }}
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -365,7 +363,7 @@ const Chat = ({ initialQuery }: ChatProps) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="sticky bottom-0 bg-white px-2 pt-3 md:px-0 md:pb-4">
+        <div className="sticky bottom-0 bg-background px-2 pt-3 md:px-0 md:pb-4">
           <div className="relative flex flex-col items-center gap-3">
             <HelperBoost submitQuery={submitQuery} setInput={setInput} />
             <ChatBottombar
@@ -379,14 +377,7 @@ const Chat = ({ initialQuery }: ChatProps) => {
           </div>
         </div>
         
-        <a
-          href="https://github.com/rakshith2605"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed right-3 bottom-0 z-10 mb-4 hidden cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-sm hover:underline md:block"
-        >
-          @rakshith2605
-        </a>
+
       </div>
     </motion.div>
   );
