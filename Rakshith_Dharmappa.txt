@@ -1,0 +1,266 @@
+Rakshith Dharmappa
+dharmappa.r@northeastern.edu | +1-857-398-3843 | LinkedIn | GitHub | Portfolio
+
+Professional Summary
+Innovative Generative AI Engineer with 3+ years in Software development, Large Language Model (LLM)
+applications and Retrieval-Augmented Generation (RAG) systems for enterprise deployment. Led implementation
+of generative AI models, achieving 40% operational cost reduction through multi-agent architectures and prompt
+engineering. Expertise in fine-tuning transformer models, MLOps deployment, and on-premise LLM pipelines with
+proven patented innovations in telecom AI applications.
+
+Technical Skills
+AI/ML Technologies: LLMs, Retrieval-Augmented Generation (RAG), Multi-Agent Systems, Prompt Engineering, Fine-tuning, Natural Language Processing (NLP), Transformer Architecture, Hugging Face
+Machine Learning: PyTorch, TensorFlow, Scikit-learn, MLflow, Vector Databases (Pinecone, FAISS)
+Programming Languages: Python, JavaScript, Java, SQL, Shell Scripting
+Cloud & DevOps: Docker, Kubernetes, Azure (Blob Storage, AKS, Cognitive Services), AWS, Airflow, CI/CD
+Data Engineering: Apache Kafka, Spark, PySpark, ETL Pipelines, Neo4j, Redis, PostgreSQL
+Frameworks: FastAPI, React, Flask, Streamlit, Gradio
+
+Professional Experience
+Reliance Jio Infocom, Generative AI Engineer:
+May 2025 – Present
+– Architected O-TAP Co-Pilot using multi-agent RAG system with CrewAI and LangGraph, automating network
+issue resolution and reducing NOC engineer workload by 40%
+– Designed patent-pending LLM architecture for telecom diagram generation using sub-10B parameter models,
+outperforming GPT-4 and Claude while reducing inference costs by 60%
+– Implemented on-premise LLM deployment pipeline with achieving sub-second latency for 95% of queries
+– Integrated knowledge graph-based RAG using Neo4j and Docling, improving context retrieval accuracy by 45%
+for complex network state analysis
+Northeastern University HPC System, Research Assistant:
+February 2024 – April 2025
+– Containerized 15+ research applications using Docker, reducing deployment time from 4 hours to 20 minutes
+and improving scientific workflow efficiency by 70%
+– Analyzed 2.5M SLURM job logs using PySpark distributed computing, identifying failure patterns that reduced
+HPC job failures by 20%
+– Automated SLURM account provisioning through shell scripting and REST APIs, decreasing administrative
+overhead by 70%
+Value Labs Solutions, Software Engineer:
+February 2022 – August 2023
+– Developed scalable ETL pipelines processing 5TB+ daily operational data on Azure Blob Storage, improving
+analytics query performance by 30%
+– Implemented microservices architecture using Docker containers and Azure Kubernetes Service, reducing deployment time by 50% and achieving 99.9% uptime
+– Established automated testing framework using Selenium and TestNG, increasing code coverage to 85% and
+reducing production bugs by 40%
+4-Tech AI&ML Solutions, Co-Founder:
+May 2018 – April 2023
+– Led AI/ML data operations for Fortune 500 clients including Apple, Mercedes-Benz, and Google, managing 50+
+annotation projects
+– Supervised training data preparation for Siri’s regional language models, improving voice recognition accuracy
+by 18% for 3 Indian languages
+– Optimized data preprocessing pipeline for voice recognition models, reducing processing time by 25% while
+maintaining quality standards
+
+Key Projects
+Genbi.co – Multi-Agent Powered Smart Data Analytics Platform:
+January 2025 – April 2025
+– Built production-ready BI analytics application with natural language querying using LangChain agents and
+GPT-4, serving 500+ daily active users
+– Engineered RAG system with contextual memory using Pinecone vector database, achieving 92% query relevance
+scores
+– Implemented multi-agent architecture with specialized agents for SQL generation, data visualization, and explanation, reducing analysis time by 60%
+– Developed robust data pipeline supporting CSV/Excel/JSON with real-time visualizations using Plotly and
+Seaborn
+PromptBudd.com – Intelligent Prompt Engineering Chrome Extension:
+March 2025 – April 2025
+– Developed Chrome extension for AI prompt optimization using CrewAI agents and custom LLM, processing
+10K+ prompts daily
+– Implemented real-time prompt scoring algorithm analyzing 15+ quality metrics, improving user prompt effectiveness by 45%
+– Engineered privacy-first PII detection system using regex and NLP, preventing 99.5% of sensitive data exposure
+– Achieved sub-second response times through efficient caching and optimized LLM inference pipeline
+NLDB Python Package – Natural Language Database Query System:
+April 2025
+– Created open-source Python library enabling natural language database queries using multi-agent architecture
+– Implemented Model Context Protocol (MCP) with automatic schema extraction, supporting SQLite with 95%
+query accuracy
+– Developed privacy-first local processing using LangChain, ensuring zero data exposure to external APIs
+– Published on PyPI with comprehensive documentation, achieving 500+ downloads in first month
+
+Education
+Northeastern University, MS in Data Science
+September 2023 – May 2025
+Relevant Coursework: Deep Learning, Neural Networks, MLOps, Generative AI, Natural Language Processing,
+Data Mining
+
+Achievements & Certifications
+– Patent Filed: "System and Method for Telecom Diagram Generation using Low-Parameter LLMs" (2025)
+– Open Source: Active contributor to LangChain and CrewAI projects
+
+Contact
+Peenya,Bangaluru
++1 8573983843 (Mobile)
+dharmappa.r@northeastern.ed
+u
+
+Rakshith Dharmappa
+
+Gen AI Engineer at Reliance Jio, Data Science, Data Engineering
+United States
+
+www.linkedin.com/in/rakshithd26
+(LinkedIn)
+
+Summary
+
+Top Skills
+
+Assistant revolves around optimizing computational processes
+and assisting researchers. Through diligent software testing
+and benchmarking for High-Performance Computing (HPC),
+we're advancing research capabilities and efficiency. My role
+encompasses not just technical prowess but also a commitment
+to collaboration and knowledge sharing, which is evident from my
+support in training sessions and project engagements.
+
+Docker
+TestNG
+.NET Framework
+
+Certifications
+ETL and Data Pipelines with Shell,
+Airflow and Kafka
+Microsoft Azure for Data Engineering
+Machine learning for Data Science
+
+At Northeastern University, my focus as a Graduate Research
+
+Previously at ValueLabs, I honed my skills in data automation, where
+my contributions led to significant enhancements in data processing
+and reporting efficiency. Leveraging Robotic Process Automation
+(RPA) and advanced data analytics, our team achieved a marked
+increase in operational efficiency. This experience, coupled with
+a robust educational foundation in Data Analytics and Electrical
+Engineering, propels me to continuously seek innovative solutions
+and drive impactful change.
+
+Experience
+Reliance Jio Infocomm Limited
+Generative AI Engineer
+May 2025 - Present (3 months)
+Dallas, Texas, United States
+
+New England Musicians Resource Fund
+Data Engineer Intern
+January 2025 - April 2025 (4 months)
+Boston, Massachusetts, United States
+
+Northeastern University
+1 year 4 months
+
+Senior Graduate Research Assistant
+December 2024 - April 2025 (5 months)
+
+Page 1 of 2
+
+Boston, Massachusetts, United States
+
+Graduate Research Assistant
+
+May 2024 - December 2024 (8 months)
+Boston, Massachusetts, United States
+
+HPC Analyst
+
+January 2024 - April 2024 (4 months)
+Boston, Massachusetts, United States
+
+ValueLabs
+1 year 8 months
+
+Senior Software Engineer
+
+May 2023 - August 2023 (4 months)
+Hyderabad, Telangana, India
+
+Software Engineer
+
+May 2022 - May 2023 (1 year 1 month)
+Hyderabad, Telangana, India
+
+SDET Intern
+
+January 2022 - May 2022 (5 months)
+Hyderabad, Telangana, India
+
+4 tec AI and ML solutions
+Co-Founder
+
+May 2018 - August 2023 (5 years 4 months)
+Bengaluru, Karnataka, India
+
+Education
+Northeastern University
+Master's degree, Data Science
+
+REVA University
+Bachelor of Technology - BTech, Electrical and Electronics Engineering
+
+Page 2 of 2
+
+{/* Projects Section */}
+        <section id="projects" className="py-12 scroll-mt-20">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-bold mb-8 flex items-center text-foreground">
+              Featured Projects
+            </h2>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <ProjectCard
+            title="GenBI- Agentic AI for Business Intelligence"
+            date="February 2025 - March 2025"
+            description="Developed Streamlit app with custom agentic AI for intuitive data analysis and visualization. Deployed OpenAI GPT-driven agents for classifying queries, manipulating data, and generating visualizations."
+            tags={["GenAI", "OpenAI", "Streamlit", "Python", "Plotly"]}
+            image="/images/proj1.png"
+            projectUrl="https://genbiv2-ek9oymz9ryloykrm2zqree.streamlit.app/"
+          />
+
+        
+            <ProjectCard
+              title="RAG Chat Bot for Research Computing Documentation"
+              date="August 2024 - October 2024"
+              description="Developed a conversational AI chatbot leveraging Retrieval-Augmented Generation (RAG) for accessing research documents. Combined Azure, Airflow, and MLflow for data collection, automated pipeline operations, and model version control."
+              tags={["RAG", "Azure", "Airflow", "MLflow", "NLP"]}
+              image="/images/project2.jpeg"
+              projectUrl="https://github.com/Santosh2904/AskRC.git"
+            />
+        
+            <ProjectCard
+              title="Resume Analyzer and Customized Job searching Ai"
+              date="January 2025 - January 2025"
+              description="Resume Analyzer is an interactive Streamlit application designed to help job seekers analyze their resumes and find relevant job opportunities on LinkedIn. By uploading a PDF resume, the app extracts key information, identifies relevant keywords, and uses them to search for job postings based on experience level and posting date. The results are presented in a visually appealing, interactive table with clickable links to job postings."
+              tags={["GenAi", "Data extraction", "Feature extraction", "NLP", "Streamlit", "Python"]}
+              image="/images/RA.png"
+              projectUrl="https://resumeanalyserai-5macukroinbruyjur8nexx.streamlit.app/"
+            />
+        
+            <ProjectCard
+              title="Real-TimePlateNumberDetection"
+              date="November 2024 - November 2024"
+              description="Detect license plates from video streams or images, Segment individual characters from the detected plate. Recognize the characters using a trained SVM model, Output the complete license plate number"
+              tags={["OpenCV", "Deep Learning", "Pytorch", "Scikit Learn"]}
+              image="/images/numberplate.jpg"
+              projectUrl="https://github.com/Rakshith2605/Real-TimePlateNumberDetection"
+            />
+        
+            <ProjectCard
+              title="CNN based Road Sign Recognition"
+              date="January 2024 - January 2024"
+              description="Developed a CNN-based AI system for accurate road sign recognition using Python and TensorFlow. Employed data augmentation techniques to improve model generalization and simulate real-world conditions."
+              tags={["CNN", "TensorFlow", "Computer Vision", "Transfer Learning"]}
+              image="/images/trafficsign.jpeg"
+              projectUrl="https://github.com/Rakshith2605/CNN-based-Road-Sign-Recognition.git"
+            />
+        
+            <ProjectCard
+              title="Weather Forecasting Model Using LSTMs"
+              date="December 2025 - December 2025"
+              description="This project develops an LSTM-based model using NOAA data to predict weather parameters like temperature and wind speed, emphasizing deep learning's effectiveness in forecasting through data preprocessing, model tuning, and evaluation using MSE and MAE metrics."
+              tags={["Azure ML", "Databricks", "ETL", "Power BI", "Predictive Analytics"]}
+              image="/images/weather.jpg"
+              projectUrl="https://example.com/weather-analysis"
+            />
+          </div>
