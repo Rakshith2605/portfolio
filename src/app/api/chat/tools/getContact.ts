@@ -6,7 +6,7 @@ export const getContact = tool({
     'Get Rakshith\'s contact information including email, phone, location, and social media links. Use this when users ask for contact details, how to reach you, or contact information.',
   parameters: z.object({}).optional(),
   execute: async (params = {}) => {
-    return {
+    return JSON.stringify({
       contact: {
         email: 'dharmappa.r@northeastern.edu',
         phone: '+1-857-398-3843',
@@ -15,6 +15,6 @@ export const getContact = tool({
         linkedin: 'https://www.linkedin.com/in/rakshithd26',
         github: 'https://github.com/rakshith2605'
       }
-    };
+    });
   },
 });

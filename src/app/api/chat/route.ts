@@ -12,6 +12,7 @@ import { getContact } from './tools/getContact';
 import { getCrazy } from './tools/getCrazy';
 import { getExperience } from './tools/getExperience';
 import { getInternship } from './tools/getIntership';
+import { getMe } from './tools/getMe';
 import { getPresentation } from './tools/getPresentation';
 import { getProjects } from './tools/getProjects';
 import { getResume } from './tools/getResume';
@@ -25,16 +26,25 @@ const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const MAX_REQUESTS_PER_WINDOW = 10;
 
+// Simple cache for tool results (in-memory, consider Redis for production)
+const toolCache = new Map<string, { data: any; timestamp: number }>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
 // Retry configuration
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // 1 second
 
-// Clean up old rate limit entries every 5 minutes
+// Clean up old rate limit entries and cache every 5 minutes
 setInterval(() => {
   const now = Date.now();
   for (const [ip, data] of rateLimitMap.entries()) {
     if (now > data.resetTime) {
       rateLimitMap.delete(ip);
+    }
+  }
+  for (const [key, data] of toolCache.entries()) {
+    if (now > data.timestamp + CACHE_TTL) {
+      toolCache.delete(key);
     }
   }
 }, 5 * 60 * 1000);
@@ -182,75 +192,89 @@ export async function POST(req: Request) {
     // Add system prompt
     const messagesWithSystem = [SYSTEM_PROMPT, ...messages];
 
+    // Create cached versions of tools for better performance
+    const createCachedTool = (tool: any, toolName: string) => ({
+      ...tool,
+      execute: async (params: any) => {
+        const cacheKey = `${toolName}:${JSON.stringify(params)}`;
+        const cached = toolCache.get(cacheKey);
+        
+        if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+          return cached.data;
+        }
+        
+        const result = await tool.execute(params);
+        toolCache.set(cacheKey, { data: result, timestamp: Date.now() });
+        return result;
+      }
+    });
+
     const tools = {
-      getProjects,
-      getPresentation,
-      getResume,
-      getContact,
-      getSkills,
-      getExperience,
-      getSports,
-      getCrazy,
-      getInternship,
+      getProjects: createCachedTool(getProjects, 'getProjects'),
+      getPresentation: createCachedTool(getPresentation, 'getPresentation'),
+      getResume: createCachedTool(getResume, 'getResume'),
+      getContact: createCachedTool(getContact, 'getContact'),
+      getSkills: createCachedTool(getSkills, 'getSkills'),
+      getExperience: createCachedTool(getExperience, 'getExperience'),
+      getSports: createCachedTool(getSports, 'getSports'),
+      getCrazy: createCachedTool(getCrazy, 'getCrazy'),
+      getInternship: createCachedTool(getInternship, 'getInternship'),
+      getMe: createCachedTool(getMe, 'getMe'),
     };
 
-    // Model configuration with fallbacks
-    const modelConfigs = [
-      {
-        name: 'qwen/qwen3-32b',
-        maxSteps: 3,
-        maxTokens: 2000,
-        temperature: 0.7,
-      }
-    ];
+    // Optimized model configuration
+    const modelConfig = {
+      name: 'meta-llama/llama-4-maverick-17b-128e-instruct',
+      maxSteps: 2, // Reduced for faster tool calls
+      maxTokens: 1500, // Reduced for faster responses
+      temperature: 0.5, // Lower temperature for more focused responses
+    };
 
-    // Retry mechanism for API calls with model fallbacks
+    // Optimized retry mechanism
     let lastError: Error | null = null;
     
-    for (const modelConfig of modelConfigs) {
-      for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-        try {
-          console.log(`[CHAT-API] Attempting with model: ${modelConfig.name} (attempt ${attempt})`);
-          
-          const result = streamText({
-            model: groq(modelConfig.name),
-            messages: messagesWithSystem,
-            toolCallStreaming: true,
-            tools,
-            maxSteps: modelConfig.maxSteps,
-            temperature: modelConfig.temperature,
-            maxTokens: modelConfig.maxTokens,
-          });
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+      try {
+        console.log(`[CHAT-API] Attempt ${attempt} with model: ${modelConfig.name}`);
+        
+        const result = streamText({
+          model: groq(modelConfig.name),
+          messages: messagesWithSystem,
+          toolCallStreaming: true,
+          tools,
+          maxSteps: modelConfig.maxSteps,
+          temperature: modelConfig.temperature,
+          maxTokens: modelConfig.maxTokens,
+        });
 
-          const response = result.toDataStreamResponse({
-            getErrorMessage: errorHandler,
-          });
-          
-          // Add security and rate limit headers
-          response.headers.set('X-Content-Type-Options', 'nosniff');
-          response.headers.set('X-Frame-Options', 'DENY');
-          response.headers.set('X-RateLimit-Limit', MAX_REQUESTS_PER_WINDOW.toString());
-          response.headers.set('X-RateLimit-Remaining', (MAX_REQUESTS_PER_WINDOW - (rateLimitMap.get(clientIP)?.count || 0)).toString());
-          response.headers.set('X-Model-Used', modelConfig.name);
-          
-          return response;
-        } catch (error) {
-          lastError = error as Error;
-          console.error(`Attempt ${attempt} with model ${modelConfig.name} failed:`, error);
-          
-          // Don't retry on certain error types
-          if (error instanceof Error) {
-            if (error.message.includes('validation') || 
-                error.message.includes('GROQ_API_KEY') ||
-                error.message.includes('rate limit')) {
-              break;
-            }
+        const response = result.toDataStreamResponse({
+          getErrorMessage: errorHandler,
+        });
+        
+        // Add security and rate limit headers
+        response.headers.set('X-Content-Type-Options', 'nosniff');
+        response.headers.set('X-Frame-Options', 'DENY');
+        response.headers.set('X-RateLimit-Limit', MAX_REQUESTS_PER_WINDOW.toString());
+        response.headers.set('X-RateLimit-Remaining', (MAX_REQUESTS_PER_WINDOW - (rateLimitMap.get(clientIP)?.count || 0)).toString());
+        response.headers.set('X-Model-Used', modelConfig.name);
+        
+        return response;
+      } catch (error) {
+        lastError = error as Error;
+        console.error(`Attempt ${attempt} failed:`, error);
+        
+        // Don't retry on certain error types
+        if (error instanceof Error) {
+          if (error.message.includes('validation') || 
+              error.message.includes('GROQ_API_KEY') ||
+              error.message.includes('rate limit')) {
+            break;
           }
-          
-          // Wait before retrying (except on last attempt)
-          if (attempt < MAX_RETRIES) {
-            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * attempt));
-          }
+        }
+        
+        // Wait before retrying (except on last attempt)
+        if (attempt < MAX_RETRIES) {
+          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * attempt));
         }
       }
     }

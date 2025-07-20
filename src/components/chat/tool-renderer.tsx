@@ -3,6 +3,7 @@ import { Contact } from '../contact';
 import Crazy from '../crazy';
 import Experience from '../experience';
 import InternshipCard from '../InternshipCard';
+import Me from '../me';
 import { Presentation } from '../presentation';
 import AllProjects from '../projects/AllProjects';
 import Resume from '../resume';
@@ -91,6 +92,13 @@ export default function ToolRenderer({
             return (
               <div key={toolCallId} className="w-full rounded-lg">
                 <InternshipCard />
+              </div>
+            );
+
+          case 'getMe':
+            return (
+              <div key={toolCallId} className="w-full rounded-lg">
+                <Me data={JSON.parse(tool.result).data} />
               </div>
             );
 
