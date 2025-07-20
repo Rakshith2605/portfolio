@@ -15,6 +15,7 @@ import { getInternship } from './tools/getIntership';
 import { getMe } from './tools/getMe';
 import { getPresentation } from './tools/getPresentation';
 import { getProjects } from './tools/getProjects';
+import { getRCB } from './tools/getRCB';
 import { getResume } from './tools/getResume';
 import { getSkills } from './tools/getSkills';
 import { getSports } from './tools/getSport';
@@ -220,6 +221,7 @@ export async function POST(req: Request) {
       getCrazy: createCachedTool(getCrazy, 'getCrazy'),
       getInternship: createCachedTool(getInternship, 'getInternship'),
       getMe: createCachedTool(getMe, 'getMe'),
+      getRCB: createCachedTool(getRCB, 'getRCB'),
     };
 
     // Optimized model configuration

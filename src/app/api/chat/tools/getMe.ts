@@ -13,7 +13,7 @@ export const getMe = tool({
       hometown: "Bengaluru, India",
       currentRole: "AI Developer at Reliance Jio",
       background: "Hey! I'm Rakshith Dharmappa, originally from Bengaluru and currently diving deep into the world of AI and tech. I've been working on cool stuff with Generative AI, building smart tools that make life easier—especially in the telecom space. Right now, I'm with Reliance Jio, and before that, I've had some great learning experiences across startups, research labs, and cloud platforms.",
-      interests: "When I'm not geeking out over AI, you'll probably find me playing cricket, locked into a chess match, or dropping into Call of Duty. I also have a soft spot for history and geo-politics—nothing like a deep dive into world affairs to keep the brain ticking.",
+      interests: "When I'm not geeking out over AI, you'll probably find me playing cricket, locked into a chess match, or dropping into Call of Duty. I'm a die-hard RCB fan boy for the past 18 years - AB de Villiers and Virat Kohli are my absolute favorites! I also have a soft spot for history and geo-politics—nothing like a deep dive into world affairs to keep the brain ticking.",
       photo: "/me.png",
       expertise: [
         "Generative AI",

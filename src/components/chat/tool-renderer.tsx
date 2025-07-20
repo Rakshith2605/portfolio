@@ -6,6 +6,7 @@ import InternshipCard from '../InternshipCard';
 import Me from '../me';
 import { Presentation } from '../presentation';
 import AllProjects from '../projects/AllProjects';
+import RCB from '../rcb';
 import Resume from '../resume';
 import Skills from '../skills';
 import Sports from '../sport';
@@ -99,6 +100,13 @@ export default function ToolRenderer({
             return (
               <div key={toolCallId} className="w-full rounded-lg">
                 <Me data={JSON.parse(tool.result).data} />
+              </div>
+            );
+
+          case 'getRCB':
+            return (
+              <div key={toolCallId} className="w-full rounded-lg">
+                <RCB data={JSON.parse(tool.result).data} />
               </div>
             );
 
