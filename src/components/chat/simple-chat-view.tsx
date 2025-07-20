@@ -64,7 +64,7 @@ export function SimplifiedChatView({
       <div className="custom-scrollbar flex h-full w-full flex-col overflow-y-auto">
         {/* Tool invocation result - displayed at the top */}
         {hasTools && (
-          <div className="mb-4 w-full">
+          <div className="mb-6 w-full">
             <ToolRenderer
               toolInvocations={currentTool}
               messageId={message.id || 'current-msg'}
@@ -91,7 +91,7 @@ export function SimplifiedChatView({
         )}
 
         {/* Add some padding at the bottom for better scrolling experience */}
-        <div className="pb-4"></div>
+        <div className="pb-6"></div>
       </div>
     </motion.div>
   );

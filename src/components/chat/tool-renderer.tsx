@@ -31,7 +31,7 @@ export default function ToolRenderer({
             return (
               <div
                 key={toolCallId}
-                className="w-full overflow-hidden rounded-lg"
+                className="w-full overflow-hidden rounded-lg p-2"
               >
                 <AllProjects />
               </div>
@@ -41,7 +41,7 @@ export default function ToolRenderer({
             return (
               <div
                 key={toolCallId}
-                className="w-full overflow-hidden rounded-lg"
+                className="w-full overflow-hidden rounded-lg p-2"
               >
                 <Presentation />
               </div>
@@ -49,63 +49,63 @@ export default function ToolRenderer({
 
           case 'getResume':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Resume />
               </div>
             );
 
           case 'getContact':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Contact />
               </div>
             );
 
           case 'getSkills':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Skills />
               </div>
             );
 
           case 'getExperience':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Experience />
               </div>
             );
 
           case 'getSports':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Sports />
               </div>
             );
 
           case 'getCrazy':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Crazy />
               </div>
             );
 
           case 'getInternship':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <InternshipCard />
               </div>
             );
 
           case 'getMe':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <Me data={JSON.parse(tool.result).data} />
               </div>
             );
 
           case 'getRCB':
             return (
-              <div key={toolCallId} className="w-full rounded-lg">
+              <div key={toolCallId} className="w-full rounded-lg p-2">
                 <RCB data={JSON.parse(tool.result).data} />
               </div>
             );
