@@ -19,6 +19,7 @@ import { getRCB } from './tools/getRCB';
 import { getResume } from './tools/getResume';
 import { getSkills } from './tools/getSkills';
 import { getSports } from './tools/getSport';
+import { getWebSearch } from './tools/getWebSearch';
 
 export const maxDuration = 30;
 
@@ -222,6 +223,7 @@ export async function POST(req: Request) {
       getInternship: createCachedTool(getInternship, 'getInternship'),
       getMe: createCachedTool(getMe, 'getMe'),
       getRCB: createCachedTool(getRCB, 'getRCB'),
+      getWebSearch: createCachedTool(getWebSearch, 'getWebSearch'),
     };
 
     // Optimized model configuration

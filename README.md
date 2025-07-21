@@ -46,15 +46,24 @@ pnpm install
 cp .env.example .env.local
 ```
 
-4. Add your Groq API key to `.env.local`:
+4. Add your API keys to `.env.local`:
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 GITHUB_TOKEN=your_github_token_here
+BRAVE_API_KEY=your_brave_api_key_here
 ```
 
-### Getting a Groq API Key
+### Getting API Keys
 
+#### Groq API Key
 1. Visit [Groq Console](https://console.groq.com/)
+2. Sign up or log in to your account
+3. Navigate to API Keys section
+4. Create a new API key
+5. Copy the key and add it to your `.env.local` file
+
+#### Brave API Key (for Web Search)
+1. Visit [Brave Search API](https://api.search.brave.com/)
 2. Sign up or log in to your account
 3. Navigate to API Keys section
 4. Create a new API key
@@ -83,6 +92,7 @@ pnpm start
 |----------|-------------|----------|
 | `GROQ_API_KEY` | Your Groq API key for AI chat functionality | Yes |
 | `GITHUB_TOKEN` | GitHub token for fetching repository stars | No |
+| `BRAVE_API_KEY` | Brave Search API key for web search functionality | No |
 
 ## AI Chat Features
 
@@ -94,6 +104,7 @@ The portfolio includes an AI-powered chat interface that can:
 - Show sports photos and achievements
 - Handle internship inquiries
 - Share personal anecdotes and experiences
+- **Search the web for current events and recent information**
 
 ### Rate Limiting
 

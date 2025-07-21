@@ -10,6 +10,53 @@ import RCB from '../rcb';
 import Resume from '../resume';
 import Skills from '../skills';
 import Sports from '../sport';
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible';
+import { ChevronDown, ChevronUp, Search } from 'lucide-react';
+import { useState } from 'react';
+
+// Web Search Result Component
+const WebSearchResult = ({ result }: { result: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Collapsible
+      open={isOpen}
+      onOpenChange={setIsOpen}
+      className="w-full overflow-hidden rounded-lg border bg-secondary/10"
+    >
+      <CollapsibleTrigger className="flex w-full items-center justify-between p-3 hover:bg-secondary/20 transition-colors">
+        <div className="flex items-center gap-2">
+          <Search className="h-4 w-4 text-blue-500" />
+          <span className="font-medium text-sm">Web Search</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs text-blue-800 dark:bg-blue-900 dark:text-blue-100">
+            Results
+          </span>
+          {isOpen ? (
+            <ChevronUp className="h-4 w-4" />
+          ) : (
+            <ChevronDown className="h-4 w-4" />
+          )}
+        </div>
+      </CollapsibleTrigger>
+      
+      <CollapsibleContent>
+        <div className="border-t bg-background/50 p-4">
+          <div className="prose dark:prose-invert max-w-none text-sm">
+            <pre className="whitespace-pre-wrap break-words font-sans text-sm leading-relaxed">
+              {result}
+            </pre>
+          </div>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+};
 
 interface ToolRendererProps {
   toolInvocations: any[];
@@ -109,6 +156,9 @@ export default function ToolRenderer({
                 <RCB data={JSON.parse(tool.result).data} />
               </div>
             );
+
+          case 'getWebSearch':
+            return <WebSearchResult key={toolCallId} result={tool.result} />;
 
           // Default renderer for other tools
           default:
