@@ -228,7 +228,7 @@ export async function POST(req: Request) {
 
     // Optimized model configuration
     const modelConfig = {
-      name: 'meta-llama/llama-4-maverick-17b-128e-instruct',
+      name: 'qwen/qwen3-32b',
       maxSteps: 2, // Reduced for faster tool calls
       maxTokens: 1500, // Reduced for faster responses
       temperature: 0.5, // Lower temperature for more focused responses
