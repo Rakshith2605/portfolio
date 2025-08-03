@@ -7,96 +7,6 @@ import { url } from 'inspector';
 // Enhanced project content array with all projects
 const PROJECT_CONTENT = [
   {
-    title: 'GenBI.co',
-    description:
-      'AI-powered business intelligence platform that transforms data into actionable insights using natural language processing. Built with advanced LLM agents and real-time data processing capabilities.',
-    techStack: [
-      'AI',
-      'Business Intelligence',
-      'NLP',
-      'Data Analytics',
-      'LLM Agents',
-      'Real-time Processing'
-    ],
-    date: '2024',
-    links: [
-      {
-        name: 'website',
-        url: 'https://genbi.co',
-      },
-      {
-        name: 'Demo Video',
-        url: 'https://youtu.be/0F-Hx1s4-O8',
-      }
-    ],
-    images: [
-      {
-        src: 'https://img.youtube.com/vi/0F-Hx1s4-O8/hqdefault.jpg',
-        alt: 'GenBI.co platform interface',
-      }
-    ],
-  },
-  {
-    title: 'PromptBud.com',
-    description:
-      'Advanced prompt engineering platform for optimizing and managing AI model interactions. Features comprehensive prompt debugging, version control, and performance analytics.',
-    techStack: [
-      'AI',
-      'Prompt Engineering',
-      'LLM',
-      'Productivity',
-      'Chrome Extension',
-      'Analytics'
-    ],
-    date: '2024',
-    links: [
-      {
-        name: 'website',
-        url: 'https://promtbud.com/',
-      },
-      {
-        name: 'Demo Video',
-        url: 'https://youtu.be/7o6WcZ58DH4',
-      }
-    ],
-    images: [
-      {
-        src: 'https://img.youtube.com/vi/7o6WcZ58DH4/hqdefault.jpg',
-        alt: 'PromptBud.com interface',
-      }
-    ],
-  },
-  {
-    title: 'NLMDB',
-    description:
-      'Python package for efficient natural language model database management and fine-tuning. Provides comprehensive tools for LLM development and deployment.',
-    techStack: [
-      'Python',
-      'NLP',
-      'Database',
-      'Machine Learning',
-      'LangChain',
-      'PyPI Package'
-    ],
-    date: '2024',
-    links: [
-      {
-        name: 'PyPI',
-        url: 'https://pypi.org/project/nlmdb',
-      },
-      {
-        name: 'Documentation',
-        url: 'https://pypi.org/project/nlmdb',
-      }
-    ],
-    images: [
-      {
-        src: '/nlmdb.png',
-        alt: 'NLMDB package interface',
-      }
-    ],
-  },
-  {
     title: 'RAG Chat Bot for Research Computing Documentation',
     description:
       'Developed a conversational AI chatbot leveraging Retrieval-Augmented Generation (RAG) for accessing research documents. Combined Azure, Airflow, and MLflow for data collection, automated pipeline operations, and model version control.',
@@ -349,24 +259,6 @@ const ProjectContent = ({ project }: { project: ProjectProps }) => {
 
 // Main data export with updated content
 export const data = [
-  {
-    category: 'AI Platform',
-    title: 'GenBI.co',
-    src: 'https://img.youtube.com/vi/0F-Hx1s4-O8/hqdefault.jpg',
-    content: <ProjectContent project={{ title: 'GenBI.co' }} />,
-  },
-  {
-    category: 'Developer Tool',
-    title: 'PromptBud.com',
-    src: 'https://img.youtube.com/vi/7o6WcZ58DH4/hqdefault.jpg',
-    content: <ProjectContent project={{ title: 'PromptBud.com' }} />,
-  },
-  {
-    category: 'Open Source',
-    title: 'NLMDB',
-    src: '/nlmdb.png',
-    content: <ProjectContent project={{ title: 'NLMDB' }} />,
-  },
   {
     category: 'Research AI',
     title: 'RAG Chat Bot for Research Computing Documentation',

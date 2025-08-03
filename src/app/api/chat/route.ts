@@ -14,6 +14,7 @@ import { getExperience } from './tools/getExperience';
 import { getInternship } from './tools/getIntership';
 import { getMe } from './tools/getMe';
 import { getPresentation } from './tools/getPresentation';
+import { getProducts } from './tools/getProducts';
 import { getProjects } from './tools/getProjects';
 import { getRCB } from './tools/getRCB';
 import { getResume } from './tools/getResume';
@@ -212,6 +213,7 @@ export async function POST(req: Request) {
     });
 
     const tools = {
+      getProducts: createCachedTool(getProducts, 'getProducts'),
       getProjects: createCachedTool(getProjects, 'getProjects'),
       getPresentation: createCachedTool(getPresentation, 'getPresentation'),
       getResume: createCachedTool(getResume, 'getResume'),
@@ -233,6 +235,8 @@ export async function POST(req: Request) {
       maxTokens: 1500, // Reduced for faster responses
       temperature: 0.5, // Lower temperature for more focused responses
     };
+
+    
 
     // Optimized retry mechanism
     let lastError: Error | null = null;

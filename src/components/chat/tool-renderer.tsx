@@ -6,6 +6,7 @@ import InternshipCard from '../InternshipCard';
 import Me from '../me';
 import { Presentation } from '../presentation';
 import AllProjects from '../projects/AllProjects';
+import AllProducts from '../projects/AllProducts';
 import RCB from '../rcb';
 import Resume from '../resume';
 import Skills from '../skills';
@@ -81,6 +82,16 @@ export default function ToolRenderer({
                 className="w-full overflow-hidden rounded-lg p-2"
               >
                 <AllProjects />
+              </div>
+            );
+
+          case 'getProducts':
+            return (
+              <div
+                key={toolCallId}
+                className="w-full overflow-hidden rounded-lg p-2"
+              >
+                <AllProducts />
               </div>
             );
 

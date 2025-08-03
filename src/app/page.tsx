@@ -32,6 +32,7 @@ const ChatComponent = dynamic(() => import('@/components/chat/chat'), {
 /* ---------- quick-question data ---------- */
 const questions = {
   Me: 'Who are you? I want to know more about you.',
+  Products: 'What are your products? Show me your commercial products and platforms.',
   Projects: 'What are your projects? What are you working on right now?',
   Skills: 'What are your skills? Give me a list of your soft and hard skills.',
   Experience: 'What is your work experience? Tell me about your professional background.',
@@ -40,6 +41,7 @@ const questions = {
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
+  { key: 'Products', color: '#FF6B35', icon: BriefcaseBusiness },
   { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
   { key: 'Skills', color: '#856ED9', icon: Layers },
   { key: 'Experience', color: '#B95F9D', icon: BriefcaseBusiness },
