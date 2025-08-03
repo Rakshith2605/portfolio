@@ -20,6 +20,7 @@ import {
   Laugh,
   Layers,
   MailIcon,
+  Package,
   PartyPopper,
   Sparkles,
   UserRoundSearch,
@@ -35,6 +36,7 @@ interface HelperBoostProps {
 
 const questions = {
   Me: 'Who are you? I want to know more about you.',
+  Products: 'What are your products? Show me your commercial products and platforms.',
   Projects: 'What are your projects? What are you working on right now?',
   Skills: 'What are your skills? Give me a list of your soft and hard skills.',
   Experience: 'What is your work experience? Tell me about your professional background.',
@@ -44,10 +46,11 @@ const questions = {
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
-  { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
+  { key: 'Products', color: '#FF6B35', icon: Package },
+  { key: 'Projects', color: '#3E9858', icon: CodeIcon },
   { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Experience', color: '#B95F9D', icon: BriefcaseBusiness },
-  { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
+  { key: 'Experience', color: '#B95F9D', icon: GraduationCapIcon },
+  { key: 'Contact', color: '#C19433', icon: MailIcon },
 ];
 
 // Helper drawer data
@@ -208,20 +211,17 @@ export default function HelperBoost({
           {/* HelperBoost Content */}
           {isVisible && (
             <div className="w-full">
-              <div
-                className="flex w-full flex-wrap gap-1 md:gap-3"
-                style={{ justifyContent: 'safe center' }}
-              >
+              <div className="flex w-full gap-2 overflow-x-auto pb-2">
                 {questionConfig.map(({ key, color, icon: Icon }) => (
                   <Button
                     key={key}
                     onClick={() => handleQuestionClick(key)}
                     variant="outline"
-                    className="border-border hover:bg-border/30 h-auto min-w-[100px] flex-shrink-0 cursor-pointer rounded-xl border bg-background/80 px-4 py-3 shadow-none backdrop-blur-sm transition-none active:scale-95"
+                    className="border-border hover:bg-border/30 flex-shrink-0 cursor-pointer rounded-xl border bg-background/80 px-4 py-3 shadow-none backdrop-blur-sm transition-all duration-200 hover:shadow-lg active:scale-95"
                   >
-                    <div className="flex items-center gap-3 text-muted-foreground">
+                    <div className="flex items-center gap-2 text-muted-foreground">
                       <Icon size={18} strokeWidth={2} color={color} />
-                      <span className="text-sm font-medium">{key}</span>
+                      <span className="text-sm font-medium whitespace-nowrap">{key}</span>
                     </div>
                   </Button>
                 ))}

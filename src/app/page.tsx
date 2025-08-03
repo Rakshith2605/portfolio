@@ -14,6 +14,10 @@ import {
   UserRoundSearch,
   Loader2,
   X,
+  Package,
+  Code,
+  GraduationCap,
+  Mail,
 } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
@@ -41,11 +45,11 @@ const questions = {
 
 const questionConfig = [
   { key: 'Me', color: '#329696', icon: Laugh },
-  { key: 'Products', color: '#FF6B35', icon: BriefcaseBusiness },
-  { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
+  { key: 'Products', color: '#FF6B35', icon: Package },
+  { key: 'Projects', color: '#3E9858', icon: Code },
   { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Experience', color: '#B95F9D', icon: BriefcaseBusiness },
-  { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
+  { key: 'Experience', color: '#B95F9D', icon: GraduationCap },
+  { key: 'Contact', color: '#C19433', icon: Mail },
 ] as const;
 
 const TITLES = [
@@ -238,7 +242,7 @@ export default function Home() {
           </form>
 
           {/* quick-question grid */}
-          <div className="mt-4 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-5">
+          <div className="mt-6 grid w-full max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3">
             {questionConfig.map(({ key, color, icon: Icon }) => (
               <motion.div
                 key={key}
@@ -249,11 +253,11 @@ export default function Home() {
                 <Button
                   onClick={() => openChat(questions[key])}
                   variant="outline"
-                  className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-background/30 py-8 shadow-none backdrop-blur-lg md:p-10"
+                  className="border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-background/30 py-6 shadow-none backdrop-blur-lg transition-all duration-200 hover:shadow-lg md:py-8"
                 >
-                  <div className="flex h-full flex-col items-center justify-center gap-1 text-muted-foreground">
-                    <Icon size={22} strokeWidth={2} color={color} />
-                    <span className="text-xs font-medium sm:text-sm">{key}</span>
+                  <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
+                    <Icon size={24} strokeWidth={2} color={color} />
+                    <span className="text-sm font-medium">{key}</span>
                   </div>
                 </Button>
               </motion.div>
