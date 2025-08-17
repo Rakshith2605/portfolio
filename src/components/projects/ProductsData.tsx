@@ -95,6 +95,33 @@ const PRODUCT_CONTENT = [
       }
     ],
   },
+  {
+    title: 'ABAP Code Assistant',
+    description:
+      'AI-powered ABAP code assistant VS Code extension that provides code generation and debugging using Groq API and Llama 3.3 70B. Features ABAP code generation following SAP best practices, debug code generation, comment-based code generation, syntax highlighting, and keyboard shortcuts for quick access.',
+    techStack: [
+      'VS Code Extension',
+      'ABAP',
+      'SAP',
+      'AI Code Generation',
+      'Groq API',
+      'Llama 3.3',
+      'Debugging Tools'
+    ],
+    date: '2024',
+    links: [
+      {
+        name: 'VS Code Marketplace',
+        url: 'https://marketplace.visualstudio.com/items?itemName=dharmappar.abap-code-assistant',
+      }
+    ],
+    images: [
+      {
+        src: '/abap.png',
+        alt: 'ABAP Code Assistant VS Code extension',
+      }
+    ],
+  },
 ];
 
 // Define interface for product prop
@@ -217,5 +244,11 @@ export const productsData = [
     title: 'NLMDB',
     src: '/nlmdb.png',
     content: <ProductContent product={{ title: 'NLMDB' }} />,
+  },
+  {
+    category: 'Developer Tool',
+    title: 'ABAP Code Assistant',
+    src: '/abap.png',
+    content: <ProductContent product={{ title: 'ABAP Code Assistant' }} />,
   },
 ]; 
